@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Admin Kamothe Tennis Cricket </title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-language" content="en-MR" />
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<link rel="stylesheet" type="text/css" href="css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css" />
+	<link rel="stylesheet" type="text/css" href="inner-page-style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
+
+	<!-- ------------data tables------------ -->
+	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script> -->
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+	<style>
+		/* Your CSS code here */
+		.fa-2x {
+			font-size: 1em;
+		}
+
+		.fa {
+			position: relative;
+			display: table-cell;
+			width: 60px;
+			height: 36px;
+			text-align: center;
+			vertical-align: middle;
+			font-size: 20px;
+		}
+
+
+
+		.main-menu {
+			background: #212121;
+			border-right: 1px solid #e5e5e5;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			height: 100%;
+			left: 0;
+			width: 260px;
+			overflow: hidden;
+			z-index: 1000;
+		}
+
+		@media screen and (max-width: 768px) {
+			.main-menu {
+				width: 200px;
+			}
+
+			.area {
+				padding-left: 200px;
+			}
+		}
+
+		.main-menu>ul {
+			margin: 7px 0;
+		}
+
+		.main-menu li {
+			position: relative;
+			display: block;
+			width: 250px;
+		}
+
+		.main-menu li>a {
+			position: relative;
+			display: table;
+			border-collapse: collapse;
+			border-spacing: 0;
+			color: #999;
+			font-family: arial;
+			font-size: 18px;
+			text-decoration: none;
+
+			-webkit-transition: all 0.1s linear;
+			transition: all 0.1s linear;
+		}
+
+		.main-menu .nav-icon {
+			position: relative;
+			display: table-cell;
+			width: 60px;
+			height: 36px;
+			text-align: center;
+			vertical-align: middle;
+			font-size: 18px;
+		}
+
+		.main-menu .nav-text {
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+			width: 190px;
+			padding-left: 10px;
+			font-family: 'Titillium Web', sans-serif;
+		}
+
+
+		.main-menu>ul.logout {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+
+		.no-touch .scrollable.hover {
+			overflow-y: hidden;
+		}
+
+		.no-touch .scrollable.hover:hover {
+			overflow-y: auto;
+			overflow: visible;
+		}
+
+		a:hover,
+		a:focus {
+			text-decoration: none;
+		}
+
+		nav {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+		}
+
+		nav ul,
+		nav li {
+			outline: 0;
+			margin: 0;
+			padding: 10px;
+		}
+
+		.main-menu li:hover>a,
+		nav.main-menu li.active>a,
+		.dropdown-menu>li>a:hover,
+		.dropdown-menu>li>a:focus,
+		.dropdown-menu>.active>a,
+		.dropdown-menu>.active>a:hover,
+		.dropdown-menu>.active>a:focus,
+		.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+		.dashboard-page nav.dashboard-menu ul li.active a {
+			color: #fff;
+			background-color: #000000;
+		}
+
+
+
+		.container-admin {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+			/* Ensure the container takes up the full viewport height */
+		}
+
+		.area {
+			flex: 1;
+			/* This will make it occupy the remaining space */
+			background-color: #e2e2e2;
+			padding: 20px;
+			padding-left: 280px;
+			overflow: auto;
+			word-wrap: break-word;
+			/* Adjust padding as needed */
+		}
+
+		@media screen and (max-width: 768px) {
+			.area {
+				padding-left: 220px;
+			}
+		}
+
+		.active-tab a {
+
+			background-color: #000000;
+		}
+
+		.active-tab span {
+			color: #fff;
+		}
+
+		@font-face {
+			font-family: 'Titillium Web';
+			font-style: normal;
+			font-weight: 300;
+			src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+		}
+
+		/* Custom DataTables styles */
+		#custom-datatable {
+			width: 100%;
+			margin-top: 20px;
+			/* border-collapse: collapse; */
+			border: 2px solid rgb(147, 146, 146);
+		}
+
+		#custom-datatable thead th {
+			background-color: #333;
+			color: white;
+			font-size: 1.3em;
+		}
+
+		#custom-datatable tbody td {
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+			font-size: 1.2em;
+			text-align: center;
+		}
+
+		#custom-datatable tbody tr:nth-child(even) {
+			background-color: #f2f2f2;
+		}
+
+		#custom-datatable tbody tr:hover {
+			background-color: #ddd;
+		}
+
+
+
+		#custom-datatable_length {
+			display: none;
+		}
+
+		#custom-datatable_filter {
+			display: none;
+		}
+
+		.heading h1 {
+			text-align: center;
+			font-size: 3em;
+			padding-bottom: 1%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container-admin">
+		<div class="area">
+			<div class="heading">
+				<h1>Player Registration</h1>
+			</div>
+			<table id="custom-datatable" class="display">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>City</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>John Doe</td>
+						<td>30</td>
+						<td>New York</td>
+					</tr>
+					<tr>
+						<td>Jane Smith</td>
+						<td>28</td>
+						<td>Los Angeles</td>
+					</tr>
+					<tr>
+						<td>Michael Johnson</td>
+						<td>35</td>
+						<td>Chicago</td>
+					</tr>
+					<tr>
+						<td>Sarah Brown</td>
+						<td>25</td>
+						<td>Miami</td>
+					</tr>
+					<tr>
+						<td>Robert White</td>
+						<td>42</td>
+						<td>Houston</td>
+					</tr>
+					<tr>
+						<td>Linda Davis</td>
+						<td>38</td>
+						<td>Phoenix</td>
+					</tr>
+					<tr>
+						<td>William Wilson</td>
+						<td>33</td>
+						<td>San Francisco</td>
+					</tr>
+					<tr>
+						<td>Mary Johnson</td>
+						<td>29</td>
+						<td>Denver</td>
+					</tr>
+					<tr>
+						<td>James Lee</td>
+						<td>31</td>
+						<td>Seattle</td>
+					</tr>
+					<tr>
+						<td>Emily Harris</td>
+						<td>27</td>
+						<td>Atlanta</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+		<nav class="main-menu">
+			<ul>
+				<li>
+					<a href="admin.html">
+
+						<span class="nav-text">Association Members</span>
+					</a>
+				</li>
+				<li class="has-subnav">
+					<a href="admin-team-registration.html">
+
+						<span class="nav-text">Team Registration</span>
+					</a>
+				</li>
+				<li class="has-subnav active-tab">
+					<a href="admin-players-registration.html">
+
+						<span class="nav-text">Players Registration</span>
+					</a>
+				</li>
+				<li class="has-subnav">
+					<a href="#">
+
+						<span class="nav-text">Rules & Regulations</span>
+					</a>
+				</li>
+				<li>
+					<a href="admin-donations.html">
+
+						<span class="nav-text">Donations</span>
+					</a>
+				</li>
+				<li>
+					<a href="admin-blog.html">
+
+						<span class="nav-text">Blogs</span>
+					</a>
+				</li>
+				<li>
+					<a href="admin-contact-enquiry.html">
+
+						<span class="nav-text">Contact & Enquiry</span>
+					</a>
+				</li>
+
+			</ul>
+
+			<ul class="logout">
+				<li>
+					<a href="#">
+						<i class="fa fa-power-off fa-2x"></i>
+						<span class="nav-text">
+							Logout
+						</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+
+	<!-- <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> -->
+	<!-- <script type="text/javascript" src="js/lightbox.js"></script> -->
+	<!-- <script type="text/javascript" src="js/all.js"></script> -->
+	<!-- <script type="text/javascript" src="js/isotope.pkgd.min.js"></script> -->
+	<!-- <script type="text/javascript" src="js/owl.carousel.js"></script> -->
+	<!-- <script type="text/javascript" src="js/jquery.flexslider.js"></script> -->
+	<!-- <script type="text/javascript" src="js/jquery.rateyo.js"></script> -->
+	<!-- <script type="text/javascript" src="js/jquery.mmenu.all.js"></script> -->
+	<script type="text/javascript" src="js/custom.js"></script>
+
+	<!-- ------------data tables------------ -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+	<script>
+		var $j = jQuery.noConflict();
+		$j(document).ready(function () {
+			$j('#custom-datatable').DataTable();
+		});
+	</script>
+</body>
+
+</html>
