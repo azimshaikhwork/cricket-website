@@ -3719,3 +3719,7 @@ RESPONSIVE STYLESHEET
 .Login-btn:hover {
 	color: black !important;
 }
+
+.sub-menu li a {
+	padding: 15px 40px;
+}
